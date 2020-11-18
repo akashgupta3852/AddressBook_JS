@@ -305,8 +305,11 @@ function editContactDetails(name) {
     let newContactDetails = new ContactDetails("Diksha", "Gupta" , "Chowka Ghat" , "Varanasi" , "U.P." , "221004" , "91 9044589948" , "dikshagupta123@iimb.ac.in");
     let index = 0;
     for(let contactDetails of contactsArray) {
-        if(name == contactDetails.getFirstName + " " + contactDetails.getLastName)
+        if(name == contactDetails.getFirstName + " " + contactDetails.getLastName) {
             contactsArray.splice(index, 1, newContactDetails);
+            console.log("The contact details of " + name + " is edited\n");
+            return;
+        }
         index++;
     }
 }
@@ -326,5 +329,29 @@ else
     console.log(name + " is not present in the address book\n");
 
 console.log("After editing, the list of contact details is as follows:");
+for(let contactDetails of contactsArray) 
+    console.log(contactDetails.toString());
+
+// Function to delete the Contact Details
+function deleteContactDetails(name) {
+    let index = 0;
+    for(let contactDetails of contactsArray) {
+        if(name == contactDetails.getFirstName + " " + contactDetails.getLastName) {
+            contactsArray.splice(index, 1);
+            console.log("The contact details of " + name + " is deleted\n");
+            return;
+        }
+        index++;
+    }
+}
+
+// Deleting the contact of Akash Gupta's contact in the contacts array
+name = "Akash Gupta";
+if(isPresent(name))
+    deleteContactDetails(name);
+else
+    console.log(name + " is not present in the address book\n");
+
+console.log("After deleting, the list of contact details is as follows:");
 for(let contactDetails of contactsArray) 
     console.log(contactDetails.toString());

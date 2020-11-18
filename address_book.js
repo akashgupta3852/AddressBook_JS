@@ -281,3 +281,12 @@ function checkEmail(email) {
     else
         throw "Email: " + email + " is incorrect";     
 }
+
+console.log("The list of contact details is as follows:");
+let contactsArray = new Array();
+contactsArray.push(newContactDetails);
+let newContactDetails2 = new ContactDetails("Diksha", "Gupta" , "Lanka" , "Varanasi" , "U.P." , "221004" , "91 9044589948" , "dikshagupta3852@gmail.com");
+contactsArray.push(newContactDetails2);
+
+for(let contactDetails of contactsArray) 
+    console.log(contactDetails.toString());

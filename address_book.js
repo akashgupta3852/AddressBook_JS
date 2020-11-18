@@ -290,3 +290,41 @@ contactsArray.push(newContactDetails2);
 
 for(let contactDetails of contactsArray) 
     console.log(contactDetails.toString());
+
+// Function to check whether contact exists or not
+function isPresent(name) {
+    for(let contactDetails of contactsArray) {
+        if(name == contactDetails.getFirstName + " " + contactDetails.getLastName)
+            return true;
+    }
+    return false;
+}
+
+// Function to edit the Contact Details
+function editContactDetails(name) {
+    let newContactDetails = new ContactDetails("Diksha", "Gupta" , "Chowka Ghat" , "Varanasi" , "U.P." , "221004" , "91 9044589948" , "dikshagupta123@iimb.ac.in");
+    let index = 0;
+    for(let contactDetails of contactsArray) {
+        if(name == contactDetails.getFirstName + " " + contactDetails.getLastName)
+            contactsArray.splice(index, 1, newContactDetails);
+        index++;
+    }
+}
+
+// Radhika's contact is not present in the contacts array
+let name = "Radhika Gupta";
+if(isPresent(name))
+    editContactDetails(name);
+else
+    console.log(name + " is not present in the address book\n");
+
+// Editing the contact of Diksha's contact in the contacts array
+name = "Diksha Gupta";
+if(isPresent(name))
+    editContactDetails(name);
+else
+    console.log(name + " is not present in the address book\n");
+
+console.log("After editing, the list of contact details is as follows:");
+for(let contactDetails of contactsArray) 
+    console.log(contactDetails.toString());

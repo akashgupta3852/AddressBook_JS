@@ -307,7 +307,7 @@ function editContactDetails(name) {
     for(let contactDetails of contactsArray) {
         if(name == contactDetails.getFirstName + " " + contactDetails.getLastName) {
             contactsArray.splice(index, 1, newContactDetails);
-            console.log("The contact details of " + name + " is edited\n");
+            console.log("The contact details of " + name + " is edited.\n");
             return;
         }
         index++;
@@ -321,7 +321,7 @@ if(isPresent(name))
 else
     console.log(name + " is not present in the address book\n");
 
-// Editing the contact of Diksha's contact in the contacts array
+// Editing the contact of Diksha's contact in the address book
 name = "Diksha Gupta";
 if(isPresent(name))
     editContactDetails(name);
@@ -338,14 +338,14 @@ function deleteContactDetails(name) {
     for(let contactDetails of contactsArray) {
         if(name == contactDetails.getFirstName + " " + contactDetails.getLastName) {
             contactsArray.splice(index, 1);
-            console.log("The contact details of " + name + " is deleted\n");
+            console.log("The contact details of " + name + " is deleted.\n");
             return;
         }
         index++;
     }
 }
 
-// Deleting the contact of Akash Gupta's contact in the contacts array
+// Deleting the contact of Akash Gupta's contact in the address book
 name = "Akash Gupta";
 if(isPresent(name))
     deleteContactDetails(name);
@@ -355,3 +355,11 @@ else
 console.log("After deleting, the list of contact details is as follows:");
 for(let contactDetails of contactsArray) 
     console.log(contactDetails.toString());
+
+// Function to count the number of all Contact Details
+function countNumOfContactDetails() {
+    return contactsArray.length;
+}
+
+// Finding the number contact details in the address book
+console.log("The no. of contact details in the address book is " + countNumOfContactDetails());
